@@ -1,8 +1,11 @@
 import { SettingsTabs } from '@/components/SettingsTabs';
 import * as Input from '@/components/Input'
-import {  Mail } from 'lucide-react';
+import {  Bold, Italic, Link, List, ListOrdered, Mail } from 'lucide-react';
 import * as FileInput from '@/components/Form/FileInput'
 import { Select } from '@/components/Form/FileInput/Select';
+import { SelectItem } from '@/components/Form/FileInput/Select/SelectItem';
+import { TextArea } from '@/components/Form/TextArea';
+import { Button } from '@/components/Button';
 
 export default function Home() {
   return (
@@ -18,14 +21,19 @@ export default function Home() {
           <span className='text-sm text-zinc-500'>Update your photo and personal details here</span>
         </div>
         <div className='flex items-center gap-2'>
-          <button 
+                   <Button 
+          variant='outline'
           type='button' 
           className='rounded-lg px-4 py-2 text-sm font-semibold shadow-sm border border-zinc-300 text-zinc-700 hover:bg-zinc-50'>
             Cancel
-          </button>
-          <button type="submit" form='settings' className='rounded-lg px-4 py-2 text-sm font-semibold shadow-sm bg-violet-600 text-white hover:bg-violet-700'>
+          </Button>
+          <Button
+          variant='primary' 
+          type="submit"
+          form='settings' 
+          >
             Save
-          </button>
+          </Button>
         </div>
       </div>
 
@@ -93,14 +101,20 @@ export default function Home() {
           <label htmlFor="country" className='text-sm font-medium text-zinc-700'>
             Country
           </label>
-          <Select/>    
+          <Select placeholder='Select a country'>
+            <SelectItem value='br' text='Brazil'/>
+            <SelectItem value='us' text='United States'/>
+          </Select>               
         </div>
 
         <div className='grid grid-cols-form gap-3 pt-5'>
           <label htmlFor="timezone" className='text-sm font-medium text-zinc-700'>
             Timezone
-          </label>
-          <div></div>        
+          </label>          
+          <Select placeholder='Select a timezone...'>
+            <SelectItem value='utc8' text='Pacific Standard Time (PST)UTC−08:00'/>
+            <SelectItem value='utc3' text='America São Paulo (UTC-03:00)'/>
+          </Select>         
         </div>
         <div className='grid grid-cols-form gap-3 pt-5'>
           <label 
@@ -112,7 +126,54 @@ export default function Home() {
               Write a short introduction.
             </span>
           </label>
-          <div></div>        
+          <div className='space-y-3'>
+            <div className='grid grid-cols-2 gap-3'>
+              <Select placeholder='' defaultValue='normal'>
+                <SelectItem 
+                value='normal' 
+                defaultChecked 
+                text='Normal Text'
+                />
+                <SelectItem value='md' text='Markdown'/>
+              </Select> 
+              <div className='flex items-center gap-1'>
+                <Button 
+                type="button" 
+                variant='ghost'>
+                  <Bold className="h-4 w-4 text-zinc-500" strokeWidth={3}/>
+                </Button>
+                <Button 
+                type="button"
+                variant='ghost' 
+                >
+                  <Italic className="h-4 w-4 text-zinc-500" strokeWidth={3}/>
+                </Button>
+                <Button 
+                type="button"
+                variant='ghost'
+               >
+                  <Link className="h-4 w-4 text-zinc-500" strokeWidth={3}/>
+                </Button>
+                <Button 
+                type="button"
+                variant='ghost'
+                >
+                  <List className="h-4 w-4 text-zinc-500" strokeWidth={3}/>
+                </Button>
+                <Button 
+                type="button"
+                variant='ghost' 
+                >
+                  <ListOrdered className="h-4 w-4 text-zinc-500" strokeWidth={3}/>
+                </Button>
+              </div>
+            </div>
+            <TextArea 
+            id="bio" 
+            defaultValue="I'm a Product Designer based in Melbourne, Australia. I specialise in UX/UI design, brand strategy, and Webflow development.
+            "
+            />
+          </div>        
         </div>
 
         <div className='grid grid-cols-form gap-3 pt-5'>
@@ -133,14 +194,19 @@ export default function Home() {
         </div>
 
         <div className='flex items-center justify-end gap-2 pt-5'>
-          <button 
+          <Button 
+          variant='outline'
           type='button' 
           className='rounded-lg px-4 py-2 text-sm font-semibold shadow-sm border border-zinc-300 text-zinc-700 hover:bg-zinc-50'>
             Cancel
-          </button>
-          <button type="submit"  className='rounded-lg px-4 py-2 text-sm font-semibold shadow-sm bg-violet-600 text-white hover:bg-violet-700'>
+          </Button>
+          <Button
+          variant='primary' 
+          type="submit"
+          form='settings' 
+          >
             Save
-          </button>
+          </Button>
         </div>
   
       </form>

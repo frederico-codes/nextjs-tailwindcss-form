@@ -3,7 +3,7 @@
 import { User } from "lucide-react"
 import { useFileInput } from './Root';
 import { useMemo } from "react";
-import { img } from "framer-motion/client";
+
 
 export function ImagePreview(){
   const { files } = useFileInput()
