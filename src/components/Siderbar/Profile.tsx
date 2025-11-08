@@ -7,10 +7,11 @@ export function Profile(){
     <div className="flex place-items-center gap-3 grid-cols-profile">
       <img className="h-10 w-10 rounded-full" src="https://github.com/frederico-codes.png" alt=""/>
       <div className="flex flex-col truncate">
-        <span className="text-sm font-semibold text-zinc-700">
+        <span className="text-sm font-semibold text-zinc-700 dark:text-zinc-100">
           Frederico Nakajima
         </span>
-        <span className="truncate text-sm text-zinc-500">fredericonakajimanakajima@gmail.com          
+        <span className="truncate text-sm text-zinc-500 dark:text-zinc-400">
+          fredericonakajimanakajima@gmail.com          
         </span>
       </div>
       <Button type="button" variant="ghost">
